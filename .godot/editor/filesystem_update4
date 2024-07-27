@@ -1,0 +1,7 @@
+res://MainScene.tscn
+res://Kitchen.tscn
+res://Bathroom.tscn
+res://Scenes/Kitchen.tscn
+res://Scenes/Bathroom.tscn
+res://Scenes/MainMenu.tscn
+res://Scripts/StartButton.gd
