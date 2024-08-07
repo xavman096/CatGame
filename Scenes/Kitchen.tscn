@@ -1,30 +1,46 @@
-[gd_scene load_steps=4 format=3 uid="uid://bcnccfiuyayep"]
+[gd_scene load_steps=5 format=3 uid="uid://bcnccfiuyayep"]
 
 [ext_resource type="Script" path="res://Scripts/PlayerMovement.gd" id="1_p8js6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7jan4"]
 size = Vector2(40, 40)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jf7o1"]
+size = Vector2(25, 40)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nwe4h"]
 size = Vector2(1151.75, 34)
 
 [node name="Kitchen" type="Node2D"]
 
-[node name="Player" type="CharacterBody2D" parent="."]
+[node name="Player" type="Sprite2D" parent="."]
 position = Vector2(342, 573)
+
+[node name="Player" type="CharacterBody2D" parent="Player"]
 script = ExtResource("1_p8js6")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Player"]
 position = Vector2(20, 20)
 shape = SubResource("RectangleShape2D_7jan4")
 
-[node name="ColorRect" type="ColorRect" parent="Player"]
+[node name="Camera2D" type="Camera2D" parent="Player/Player"]
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+
+[node name="ColorRect" type="ColorRect" parent="Player/Player"]
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
-drag_horizontal_enabled = true
-drag_vertical_enabled = true
+[node name="AttackHitbox" type="CollisionShape2D" parent="Player/Player"]
+position = Vector2(52.5, 20)
+shape = SubResource("RectangleShape2D_jf7o1")
+
+[node name="ColorRect" type="ColorRect" parent="Player/Player/AttackHitbox"]
+offset_left = -12.0
+offset_top = -20.0
+offset_right = 13.0
+offset_bottom = 20.0
+color = Color(0.883637, 0.332035, 0, 1)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
