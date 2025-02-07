@@ -1,54 +1,89 @@
-[gd_scene load_steps=5 format=3 uid="uid://bcnccfiuyayep"]
+[gd_scene load_steps=10 format=3 uid="uid://bcnccfiuyayep"]
 
-[ext_resource type="Script" path="res://Scripts/PlayerMovement.gd" id="1_p8js6"]
+[ext_resource type="Texture2D" uid="uid://cufr4urc28ksr" path="res://Textures/Kitchen/LargeCounter.png" id="1_oqi3v"]
+[ext_resource type="Texture2D" uid="uid://c6w3lbkhu1qs2" path="res://Textures/Kitchen/LargeCounter2.png" id="2_taroe"]
+[ext_resource type="Texture2D" uid="uid://d23uccej7w5mk" path="res://Textures/Kitchen/SmallCounter2.png" id="3_7lhwp"]
+[ext_resource type="Texture2D" uid="uid://cu0lhbcnxgqjv" path="res://Textures/Kitchen/SmallCounter.png" id="4_k2vib"]
+[ext_resource type="Script" path="res://Scripts/PlayerMovement.gd" id="6_e817y"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7jan4"]
-size = Vector2(40, 40)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hfh23"]
+size = Vector2(105.5, 64)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jf7o1"]
-size = Vector2(25, 40)
+[sub_resource type="Gradient" id="Gradient_wybi8"]
+offsets = PackedFloat32Array(0.233766, 1)
+colors = PackedColorArray(1, 0, 0, 1, 0, 1, 0, 1)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_nwe4h"]
-size = Vector2(1151.75, 34)
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_4pm0c"]
+gradient = SubResource("Gradient_wybi8")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vahfj"]
+size = Vector2(3296.75, 34)
 
 [node name="Kitchen" type="Node2D"]
 
-[node name="Player" type="Sprite2D" parent="."]
-position = Vector2(342, 573)
+[node name="LargeCounter" type="Sprite2D" parent="."]
+position = Vector2(488, -231)
+texture = ExtResource("1_oqi3v")
 
-[node name="Player" type="CharacterBody2D" parent="Player"]
-script = ExtResource("1_p8js6")
+[node name="LargeCounter2" type="Sprite2D" parent="."]
+position = Vector2(1485, -227)
+texture = ExtResource("2_taroe")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Player"]
-position = Vector2(20, 20)
-shape = SubResource("RectangleShape2D_7jan4")
+[node name="SmallCounter2" type="Sprite2D" parent="."]
+position = Vector2(2746, -232)
+texture = ExtResource("3_7lhwp")
 
-[node name="Camera2D" type="Camera2D" parent="Player/Player"]
+[node name="SmallCounter" type="Sprite2D" parent="."]
+position = Vector2(2237, -239)
+texture = ExtResource("4_k2vib")
+
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(-3310, -826)
+script = ExtResource("6_e817y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+modulate = Color(1, 0, 0.25098, 1)
+shape = SubResource("RectangleShape2D_hfh23")
+debug_color = Color(0.865585, 1.92523e-06, 0.516324, 0.42)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
+drag_left_margin = 0.0
+drag_top_margin = 0.0
+drag_right_margin = 0.0
+drag_bottom_margin = 0.0
 
-[node name="ColorRect" type="ColorRect" parent="Player/Player"]
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="Player" type="Sprite2D" parent="Player"]
+position = Vector2(-21, 0)
+texture = SubResource("GradientTexture2D_4pm0c")
 
-[node name="AttackHitbox" type="CollisionShape2D" parent="Player/Player"]
-position = Vector2(52.5, 20)
-shape = SubResource("RectangleShape2D_jf7o1")
+[node name="Control" type="Control" parent="Player"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -362.0
+offset_top = -573.0
+offset_right = -362.0
+offset_bottom = -573.0
+metadata/_edit_use_anchors_ = true
 
-[node name="ColorRect" type="ColorRect" parent="Player/Player/AttackHitbox"]
-offset_left = -12.0
-offset_top = -20.0
-offset_right = 13.0
-offset_bottom = 20.0
-color = Color(0.883637, 0.332035, 0, 1)
+[node name="RichTextLabel" type="RichTextLabel" parent="Player/Control"]
+layout_mode = 0
+offset_left = -139.0
+offset_top = 260.0
+offset_right = -36.0
+offset_bottom = 300.0
+text = "Score: 0"
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="Floor" type="StaticBody2D" parent="."]
+position = Vector2(-3808, -995)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(576.125, 632)
-shape = SubResource("RectangleShape2D_nwe4h")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+position = Vector2(1648.63, 632)
+shape = SubResource("RectangleShape2D_vahfj")
 
-[node name="ColorRect" type="ColorRect" parent="StaticBody2D"]
+[node name="ColorRect" type="ColorRect" parent="Floor"]
+visible = false
 offset_top = 614.0
 offset_right = 1155.0
 offset_bottom = 647.0

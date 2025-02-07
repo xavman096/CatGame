@@ -1,0 +1,74 @@
+[gd_scene load_steps=8 format=3 uid="uid://bcnccfiuyayep"]
+
+[ext_resource type="Script" path="res://Scripts/PlayerMovement.gd" id="1_p8js6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7jan4"]
+size = Vector2(105.5, 64)
+
+[sub_resource type="Gradient" id="Gradient_wybi8"]
+offsets = PackedFloat32Array(0.233766, 1)
+colors = PackedColorArray(1, 0, 0, 1, 0, 1, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_dgqu4"]
+gradient = SubResource("Gradient_wybi8")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nwe4h"]
+size = Vector2(1151.75, 34)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nnr1a"]
+size = Vector2(56.5, 35)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lwbge"]
+size = Vector2(69.75, 65)
+
+[node name="Kitchen" type="Node2D"]
+
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(362, 573)
+script = ExtResource("1_p8js6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+modulate = Color(1, 0, 0.25098, 1)
+shape = SubResource("RectangleShape2D_7jan4")
+debug_color = Color(0.865585, 1.92523e-06, 0.516324, 0.42)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+
+[node name="Player" type="Sprite2D" parent="Player"]
+position = Vector2(-21, 0)
+texture = SubResource("GradientTexture2D_dgqu4")
+
+[node name="Floor" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+position = Vector2(576.125, 632)
+shape = SubResource("RectangleShape2D_nwe4h")
+
+[node name="ColorRect" type="ColorRect" parent="Floor"]
+offset_top = 614.0
+offset_right = 1155.0
+offset_bottom = 647.0
+
+[node name="Wall" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall"]
+position = Vector2(500.75, 593.5)
+shape = SubResource("RectangleShape2D_nnr1a")
+
+[node name="ColorRect" type="ColorRect" parent="Wall/CollisionShape2D"]
+offset_left = -28.0
+offset_top = -16.0
+offset_right = 29.0
+offset_bottom = 18.0
+
+[node name="Enemy" type="CharacterBody2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="Enemy"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy/Area2D"]
+position = Vector2(712, 580)
+shape = SubResource("RectangleShape2D_lwbge")
+
+[connection signal="body_entered" from="Enemy/Area2D" to="Player" method="_on_area_2d_body_entered"]

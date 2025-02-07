@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://bcnccfiuyayep"]
+
+[ext_resource type="Script" path="res://Scripts/PlayerMovement.gd" id="1_p8js6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7jan4"]
+size = Vector2(64, 64)
+
+[sub_resource type="Gradient" id="Gradient_wybi8"]
+offsets = PackedFloat32Array(0.233766, 1)
+colors = PackedColorArray(1, 0, 0, 1, 0, 1, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_dgqu4"]
+gradient = SubResource("Gradient_wybi8")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nwe4h"]
+size = Vector2(1151.75, 34)
+
+[node name="Kitchen" type="Node2D"]
+
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(342, 573)
+script = ExtResource("1_p8js6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+shape = SubResource("RectangleShape2D_7jan4")
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+
+[node name="Player" type="Sprite2D" parent="Player"]
+texture = SubResource("GradientTexture2D_dgqu4")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(576.125, 632)
+shape = SubResource("RectangleShape2D_nwe4h")
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D"]
+offset_top = 614.0
+offset_right = 1155.0
+offset_bottom = 647.0

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cu0lhbcnxgqjv"
-path="res://.godot/imported/SmallCounter.png-4882d873c7c4741cf3c0932f06c847bd.ctex"
+uid="uid://5amju23qnr0b"
+path="res://.godot/imported/CatTreats.png-6a49e623b383a713a2a3ab5d947cf0da.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/SmallCounter.png"
-dest_files=["res://.godot/imported/SmallCounter.png-4882d873c7c4741cf3c0932f06c847bd.ctex"]
+source_file="res://Textures/Kitchen/CatTreats.png"
+dest_files=["res://.godot/imported/CatTreats.png-6a49e623b383a713a2a3ab5d947cf0da.ctex"]
 
 [params]
 

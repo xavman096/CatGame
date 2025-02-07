@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cufr4urc28ksr"
-path="res://.godot/imported/LargeCounter.png-61c27eedd509079903fecea9f7ad37c6.ctex"
+uid="uid://ky0ayg5qtb60"
+path="res://.godot/imported/Blender.png-9a7a28b18c38cf2b943bde2270d872ec.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/LargeCounter.png"
-dest_files=["res://.godot/imported/LargeCounter.png-61c27eedd509079903fecea9f7ad37c6.ctex"]
+source_file="res://Textures/Kitchen/Blender.png"
+dest_files=["res://.godot/imported/Blender.png-9a7a28b18c38cf2b943bde2270d872ec.ctex"]
 
 [params]
 
