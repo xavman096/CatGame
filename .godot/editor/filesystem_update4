@@ -3,5 +3,3 @@ res://Scenes/Kitchen.tscn
 res://Scenes/Bedroom.tscn
 res://Scenes/Bathroom.tscn
 res://Test.tscn
-res://Scripts/PlayerMovement.gd
-res://Scripts/StartButton.gd
