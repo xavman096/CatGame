@@ -1,12 +1,12 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1740115684
+::res://::1740117484
 README.md::TextFile::-1::1722061791::0::1::::<><>::
-Test.tscn::PackedScene::8582988816511935158::1739934339::0::1::::<><>::res://Scripts/PlayerMovement.gd
-::res://Scenes/::1740093844
-Bathroom.tscn::PackedScene::6246301060618961118::1739934339::0::1::::<><>::
-Bedroom.tscn::PackedScene::4138756471861901921::1739934339::0::1::::<><>::
-Kitchen.tscn::PackedScene::2553760563261280119::1740093844::0::1::::<><>::uid://cufr4urc28ksr::::res://Textures/Kitchen/LargeCounter.png<>uid://c6w3lbkhu1qs2::::res://Textures/Kitchen/LargeCounter2.png<>uid://d23uccej7w5mk::::res://Textures/Kitchen/SmallCounter2.png<>uid://cu0lhbcnxgqjv::::res://Textures/Kitchen/SmallCounter.png<>uid://bsdwvimfvrp5n::::res://Textures/OrangeCat.png<>res://Scripts/PlayerMovement.gd<>uid://cw2f5sbhfujj6::::res://Textures/Kitchen/Cupboard.png<>uid://dgqjw7gx7buut::::res://Textures/Kitchen/Cupboard2.png<>uid://b4vmuxdgy87th::::res://Textures/Kitchen/KitchenTiles.png<>uid://dksoqrljjj7rs::::res://Textures/Kitchen/Oven2.png
-MainMenu.tscn::PackedScene::1659014628248900367::1739934338::0::1::::<><>::res://Scripts/StartButton.gd
+Test.tscn::PackedScene::8582988816511935158::1740115688::0::1::::<><>::res://Scripts/PlayerMovement.gd
+::res://Scenes/::1740115688
+Bathroom.tscn::PackedScene::6246301060618961118::1740115688::0::1::::<><>::
+Bedroom.tscn::PackedScene::4138756471861901921::1740115688::0::1::::<><>::
+Kitchen.tscn::PackedScene::2553760563261280119::1740115688::0::1::::<><>::uid://cufr4urc28ksr::::res://Textures/Kitchen/LargeCounter.png<>uid://c6w3lbkhu1qs2::::res://Textures/Kitchen/LargeCounter2.png<>uid://d23uccej7w5mk::::res://Textures/Kitchen/SmallCounter2.png<>uid://cu0lhbcnxgqjv::::res://Textures/Kitchen/SmallCounter.png<>uid://bsdwvimfvrp5n::::res://Textures/OrangeCat.png<>res://Scripts/PlayerMovement.gd<>uid://cw2f5sbhfujj6::::res://Textures/Kitchen/Cupboard.png<>uid://dgqjw7gx7buut::::res://Textures/Kitchen/Cupboard2.png<>uid://b4vmuxdgy87th::::res://Textures/Kitchen/KitchenTiles.png<>uid://dksoqrljjj7rs::::res://Textures/Kitchen/Oven2.png
+MainMenu.tscn::PackedScene::1659014628248900367::1740115688::0::1::::<><>::res://Scripts/StartButton.gd
 Test.tscn::PackedScene::392442133690222793::1738911069::0::1::::<><>::res://Scripts/PlayerMovement.gd
 ::res://Scripts/::1738915767
 PlayerMovement.gd::GDScript::-1::1738912421::0::1::::<>CharacterBody2D<>::
@@ -15,7 +15,7 @@ StartButton.gd::GDScript::-1::1738915767::0::1::::<>Node<>::
 BlackCat.png::CompressedTexture2D::6044016875789009765::1738916849::1738916948::1::::<><>::
 GameIcon.png::CompressedTexture2D::2036789819731260090::1739934962::1739934965::1::::<><>::
 OrangeCat.png::CompressedTexture2D::3657386716933109181::1738916693::1738916948::1::::<><>::
-::res://Textures/Kitchen/::1740093444
+::res://Textures/Kitchen/::1740118264
 Apple.png::CompressedTexture2D::7189121143259883618::1738910258::1738911444::1::::<><>::
 Banana.png::CompressedTexture2D::1061588892907698641::1738910203::1738911444::1::::<><>::
 Blender.png::CompressedTexture2D::752952698511343123::1738910240::1738911444::1::::<><>::
@@ -30,6 +30,7 @@ LargeCounter.png::CompressedTexture2D::6188025182674359637::1739929767::17399299
 Oven2.png::CompressedTexture2D::7899188807945049996::1740093119::1740093120::1::::<><>::
 Oven.png::CompressedTexture2D::8050823726797925631::1738909249::1738911444::1::::<><>::
 Pear.png::CompressedTexture2D::391956971952975676::1738824887::1738911444::1::::<><>::
+Rangehood.png::CompressedTexture2D::8038841483485069400::1740118264::1740118267::1::::<><>::
 SmallCounter2.png::CompressedTexture2D::9113381429541489642::1739928718::1739928907::1::::<><>::
 SmallCounter.png::CompressedTexture2D::6228908127710719431::1739928713::1739928907::1::::<><>::
 Spatular.png::CompressedTexture2D::5301035389911157558::1738910295::1738911444::1::::<><>::

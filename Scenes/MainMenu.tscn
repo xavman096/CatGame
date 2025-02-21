@@ -1,27 +1,32 @@
-[gd_scene load_steps=2 format=3 uid="uid://xvvy1gvfioqh"]
+[gd_scene load_steps=3 format=3 uid="uid://xvvy1gvfioqh"]
 
 [ext_resource type="Script" path="res://Scripts/StartButton.gd" id="1_bequl"]
+[ext_resource type="Texture2D" uid="uid://4avvpfc7iadu" path="res://Textures/GameIcon.png" id="2_0cc4o"]
 
 [node name="MainMenu" type="Node2D"]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Label" type="Label" parent="CanvasLayer"]
-offset_left = 457.0
-offset_top = 80.0
-offset_right = 733.0
-offset_bottom = 192.0
+offset_left = 432.0
+offset_top = 208.0
+offset_right = 708.0
+offset_bottom = 320.0
 theme_override_font_sizes/font_size = 35
 text = "CatGame"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Button" type="Button" parent="CanvasLayer"]
-offset_left = 435.0
-offset_top = 297.0
-offset_right = 787.0
-offset_bottom = 407.0
+offset_left = 429.0
+offset_top = 344.0
+offset_right = 781.0
+offset_bottom = 454.0
 text = "Start Game"
 script = ExtResource("1_bequl")
+
+[node name="GameIcon" type="Sprite2D" parent="."]
+position = Vector2(576, 144)
+texture = ExtResource("2_0cc4o")
 
 [connection signal="pressed" from="CanvasLayer/Button" to="CanvasLayer/Button" method="_on_pressed"]

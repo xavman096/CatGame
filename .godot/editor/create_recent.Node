@@ -1,3 +1,5 @@
+Node2D
+Node
 RichTextLabel
 Control
 TextEdit
@@ -10,5 +12,3 @@ Sprite2D
 AnimatedSprite2D
 SubViewport
 Button
-Label
-TextureRect

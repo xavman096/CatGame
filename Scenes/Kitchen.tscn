@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bcnccfiuyayep"]
+[gd_scene load_steps=16 format=3 uid="uid://bcnccfiuyayep"]
 
 [ext_resource type="Texture2D" uid="uid://cufr4urc28ksr" path="res://Textures/Kitchen/LargeCounter.png" id="1_oqi3v"]
 [ext_resource type="Texture2D" uid="uid://c6w3lbkhu1qs2" path="res://Textures/Kitchen/LargeCounter2.png" id="2_taroe"]
@@ -10,6 +10,10 @@
 [ext_resource type="Texture2D" uid="uid://dgqjw7gx7buut" path="res://Textures/Kitchen/Cupboard2.png" id="8_h7v0b"]
 [ext_resource type="Texture2D" uid="uid://b4vmuxdgy87th" path="res://Textures/Kitchen/KitchenTiles.png" id="9_j74r0"]
 [ext_resource type="Texture2D" uid="uid://dksoqrljjj7rs" path="res://Textures/Kitchen/Oven2.png" id="10_uvas7"]
+[ext_resource type="Texture2D" uid="uid://dmscsryuouqma" path="res://Textures/Kitchen/Rangehood.png" id="11_nryyt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vahfj"]
+size = Vector2(3296.75, 34)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hfh23"]
 size = Vector2(105.5, 64)
@@ -21,29 +25,23 @@ colors = PackedColorArray(1, 0, 0, 1, 0, 1, 0, 1)
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_4pm0c"]
 gradient = SubResource("Gradient_wybi8")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vahfj"]
-size = Vector2(3296.75, 34)
-
 [node name="Kitchen" type="Node2D"]
 
-[node name="LargeCounter" type="Sprite2D" parent="."]
-position = Vector2(496, -240)
-texture = ExtResource("1_oqi3v")
+[node name="Floor" type="StaticBody2D" parent="."]
+position = Vector2(-3598, -1076)
 
-[node name="LargeCounter2" type="Sprite2D" parent="."]
-position = Vector2(1488, -240)
-texture = ExtResource("2_taroe")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+position = Vector2(1648.63, 632)
+shape = SubResource("RectangleShape2D_vahfj")
 
-[node name="SmallCounter2" type="Sprite2D" parent="."]
-position = Vector2(2704, -240)
-texture = ExtResource("3_7lhwp")
-
-[node name="SmallCounter" type="Sprite2D" parent="."]
-position = Vector2(2224, -240)
-texture = ExtResource("4_k2vib")
+[node name="ColorRect" type="ColorRect" parent="Floor"]
+visible = false
+offset_top = 614.0
+offset_right = 1155.0
+offset_bottom = 647.0
 
 [node name="Player" type="CharacterBody2D" parent="."]
-position = Vector2(-1415, -664)
+position = Vector2(-2048, -768)
 script = ExtResource("6_e817y")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
@@ -81,37 +79,83 @@ offset_right = -36.0
 offset_bottom = 300.0
 text = "Score: 0"
 
-[node name="Floor" type="StaticBody2D" parent="."]
-position = Vector2(-3598, -1076)
+[node name="OvenPrefab" type="Node2D" parent="."]
+position = Vector2(1792, -624)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
-position = Vector2(1648.63, 632)
-shape = SubResource("RectangleShape2D_vahfj")
+[node name="SmallCounter2" type="Sprite2D" parent="OvenPrefab"]
+position = Vector2(-480, 384)
+texture = ExtResource("3_7lhwp")
 
-[node name="ColorRect" type="ColorRect" parent="Floor"]
-visible = false
-offset_top = 614.0
-offset_right = 1155.0
-offset_bottom = 647.0
+[node name="SmallCounter3" type="Sprite2D" parent="OvenPrefab"]
+position = Vector2(480, 384)
+texture = ExtResource("3_7lhwp")
 
-[node name="OrangeCat" type="Sprite2D" parent="."]
-position = Vector2(256, -672)
-texture = ExtResource("6_ccgq3")
-
-[node name="Cupboard" type="Sprite2D" parent="."]
-position = Vector2(192, -1104)
+[node name="Cupboard" type="Sprite2D" parent="OvenPrefab"]
+position = Vector2(-432, -256)
 texture = ExtResource("7_shgab")
 
-[node name="Cupboard2" type="Sprite2D" parent="."]
-position = Vector2(576, -1104)
+[node name="Cupboard2" type="Sprite2D" parent="OvenPrefab"]
+position = Vector2(432, -256)
 texture = ExtResource("8_h7v0b")
+
+[node name="Oven2" type="Sprite2D" parent="OvenPrefab"]
+position = Vector2(0, 384)
+texture = ExtResource("10_uvas7")
+
+[node name="Rangehood" type="Sprite2D" parent="OvenPrefab"]
+position = Vector2(0, -384)
+texture = ExtResource("11_nryyt")
+
+[node name="BenchPrefab1" type="Node2D" parent="."]
+position = Vector2(3552, -1216)
+
+[node name="LargeCounter" type="Sprite2D" parent="BenchPrefab1"]
+position = Vector2(-496, 0)
+texture = ExtResource("1_oqi3v")
+
+[node name="SmallCounter2" type="Sprite2D" parent="BenchPrefab1"]
+position = Vector2(240, 0)
+texture = ExtResource("3_7lhwp")
+
+[node name="BenchPrefab2" type="Node2D" parent="."]
+position = Vector2(3552, -736)
+
+[node name="LargeCounter2" type="Sprite2D" parent="BenchPrefab2"]
+position = Vector2(-496, 0)
+texture = ExtResource("2_taroe")
+
+[node name="SmallCounter" type="Sprite2D" parent="BenchPrefab2"]
+position = Vector2(240, 0)
+texture = ExtResource("4_k2vib")
+
+[node name="BenchPrefab3" type="Node2D" parent="."]
+position = Vector2(3040, -256)
+
+[node name="LargeCounter" type="Sprite2D" parent="BenchPrefab3"]
+position = Vector2(496, 0)
+texture = ExtResource("1_oqi3v")
+
+[node name="SmallCounter" type="Sprite2D" parent="BenchPrefab3"]
+position = Vector2(-240, 0)
+texture = ExtResource("4_k2vib")
+
+[node name="BenchPrefab4" type="Node2D" parent="."]
+position = Vector2(3040, 224)
+
+[node name="SmallCounter2" type="Sprite2D" parent="BenchPrefab4"]
+position = Vector2(-240, 0)
+texture = ExtResource("3_7lhwp")
+
+[node name="LargeCounter2" type="Sprite2D" parent="BenchPrefab4"]
+position = Vector2(496, 0)
+texture = ExtResource("2_taroe")
 
 [node name="KitchenTiles" type="Sprite2D" parent="."]
 z_index = -1
-position = Vector2(1280, -770)
+position = Vector2(-656, -768)
 scale = Vector2(0.969697, 0.969697)
 texture = ExtResource("9_j74r0")
 
-[node name="Oven2" type="Sprite2D" parent="."]
-position = Vector2(3184, -240)
-texture = ExtResource("10_uvas7")
+[node name="OrangeCat" type="Sprite2D" parent="."]
+position = Vector2(-1136, -656)
+texture = ExtResource("6_ccgq3")
