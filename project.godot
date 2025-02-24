@@ -11,9 +11,10 @@ config_version=5
 [application]
 
 config/name="CatGame"
-run/main_scene="res://Scenes/MainMenu.tscn"
+run/main_scene="res://Scenes/Kitchen.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://Textures/GameIcon.png"
+run/icon="res://Textures/GameIcon.png"
 
 [input]
 

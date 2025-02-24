@@ -131,14 +131,6 @@ texture = ExtResource("3_7lhwp")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BenchPrefab1/Hitbox1"]
 shape = SubResource("RectangleShape2D_elsln")
 
-[node name="PrefabBoundry1" type="Area2D" parent="BenchPrefab1"]
-position = Vector2(-728, -232)
-disable_mode = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BenchPrefab1/PrefabBoundry1"]
-position = Vector2(0, -112)
-shape = SubResource("RectangleShape2D_gb8yh")
-
 [node name="BenchPrefab2" type="Node2D" parent="."]
 position = Vector2(-1712, -2824)
 
@@ -154,14 +146,6 @@ texture = ExtResource("4_k2vib")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BenchPrefab2/Hitbox2"]
 shape = SubResource("RectangleShape2D_c6e46")
-
-[node name="PrefabBoundry1" type="Area2D" parent="BenchPrefab2"]
-position = Vector2(-728, -232)
-disable_mode = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BenchPrefab2/PrefabBoundry1"]
-position = Vector2(0, -112)
-shape = SubResource("RectangleShape2D_gb8yh")
 
 [node name="BenchPrefab3" type="Node2D" parent="."]
 position = Vector2(-1712, -2344)
@@ -179,14 +163,6 @@ texture = ExtResource("4_k2vib")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BenchPrefab3/Hitbox3"]
 shape = SubResource("RectangleShape2D_2w6kp")
 
-[node name="PrefabBoundry1" type="Area2D" parent="BenchPrefab3"]
-position = Vector2(-728, -232)
-disable_mode = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BenchPrefab3/PrefabBoundry1"]
-position = Vector2(0, -112)
-shape = SubResource("RectangleShape2D_gb8yh")
-
 [node name="BenchPrefab4" type="Node2D" parent="."]
 position = Vector2(-1712, -1864)
 
@@ -203,14 +179,6 @@ texture = ExtResource("2_taroe")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BenchPrefab4/Hitbox4"]
 shape = SubResource("RectangleShape2D_be5dw")
 
-[node name="PrefabBoundry1" type="Area2D" parent="BenchPrefab4"]
-position = Vector2(-728, -232)
-disable_mode = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BenchPrefab4/PrefabBoundry1"]
-position = Vector2(0, -112)
-shape = SubResource("RectangleShape2D_gb8yh")
-
 [node name="KitchenTiles" type="Sprite2D" parent="."]
 z_index = -1
 position = Vector2(-2048, -912)
@@ -223,11 +191,3 @@ texture = ExtResource("6_ccgq3")
 
 [connection signal="area_entered" from="OvenPrefab/PrefabBoundry1" to="Player" method="_on_prefab_boundry_1_area_entered"]
 [connection signal="body_entered" from="OvenPrefab/PrefabBoundry1" to="Player" method="_on_prefab_boundry_1_body_entered"]
-[connection signal="area_entered" from="BenchPrefab1/PrefabBoundry1" to="Player" method="_on_prefab_boundry_1_area_entered"]
-[connection signal="body_entered" from="BenchPrefab1/PrefabBoundry1" to="Player" method="_on_prefab_boundry_1_body_entered"]
-[connection signal="area_entered" from="BenchPrefab2/PrefabBoundry1" to="Player" method="_on_prefab_boundry_1_area_entered"]
-[connection signal="body_entered" from="BenchPrefab2/PrefabBoundry1" to="Player" method="_on_prefab_boundry_1_body_entered"]
-[connection signal="area_entered" from="BenchPrefab3/PrefabBoundry1" to="Player" method="_on_prefab_boundry_1_area_entered"]
-[connection signal="body_entered" from="BenchPrefab3/PrefabBoundry1" to="Player" method="_on_prefab_boundry_1_body_entered"]
-[connection signal="area_entered" from="BenchPrefab4/PrefabBoundry1" to="Player" method="_on_prefab_boundry_1_area_entered"]
-[connection signal="body_entered" from="BenchPrefab4/PrefabBoundry1" to="Player" method="_on_prefab_boundry_1_body_entered"]

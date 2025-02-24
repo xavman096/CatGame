@@ -3,9 +3,11 @@ extends CharacterBody2D
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
-var AttackCooldown = 2
+var AttackCooldown = 30
 var CharacterDirection = 1
 var CanAttack = false
+
+var BoundryCollision
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -40,10 +42,11 @@ func _physics_process(delta):
 		
 	if Input.is_action_just_pressed("Attack") and AttackCooldown <= 0:
 		print("Attacked")
+		AttackCooldown = 30
 		# For animation to play when attacking but no hitting anything
 		
 		
-	AttackCooldown = AttackCooldown - 0.2
+	AttackCooldown = AttackCooldown - 1
 	move_and_slide()
 
 	if Input.is_action_just_pressed("Attack") and AttackCooldown <= 0 and CanAttack == true:
@@ -58,3 +61,7 @@ func _on_area_2d_area_entered(_area):
 func _on_area_2d_area_exited(_area):
 	CanAttack = false
 	print("Player exited enemy")
+
+
+func _on_prefab_boundry_1_body_entered(_body):
+	BoundryCollision = true

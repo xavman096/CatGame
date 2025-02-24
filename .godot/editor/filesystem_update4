@@ -1,5 +1,7 @@
-res://Scenes/MainMenu.tscn
 res://Scenes/Kitchen.tscn
+res://Scripts/GameplayManager.gd
+res://Scenes/MainMenu.tscn
 res://Scenes/Bedroom.tscn
 res://Scenes/Bathroom.tscn
-res://Scripts/GameStart.gd
+res://Scripts/PlayerMovement.gd
+res://Scripts/StartButton.gd
