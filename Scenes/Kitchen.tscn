@@ -48,7 +48,7 @@ size = Vector2(1472, 16)
 script = ExtResource("1_6mopy")
 
 [node name="Floor" type="StaticBody2D" parent="."]
-position = Vector2(-2048, -496)
+position = Vector2(-4360, -1920)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
 shape = SubResource("RectangleShape2D_vahfj")
@@ -63,7 +63,7 @@ shape = SubResource("RectangleShape2D_hfh23")
 debug_color = Color(0.865585, 1.92523e-06, 0.516324, 0.42)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
-zoom = Vector2(0.7, 0.7)
+zoom = Vector2(0.1, 0.1)
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
 drag_left_margin = 0.0
@@ -116,7 +116,7 @@ position = Vector2(0, -112)
 shape = SubResource("RectangleShape2D_gb8yh")
 
 [node name="BenchPrefab1" type="Node2D" parent="."]
-position = Vector2(-1712, -3304)
+position = Vector2(-1600, -3312)
 
 [node name="LargeCounter" type="Sprite2D" parent="BenchPrefab1"]
 position = Vector2(-240, 232)
@@ -132,7 +132,7 @@ texture = ExtResource("3_7lhwp")
 shape = SubResource("RectangleShape2D_elsln")
 
 [node name="PrefabBoundry1" type="Area2D" parent="BenchPrefab1"]
-position = Vector2(-728, -232)
+position = Vector2(-704, -232)
 disable_mode = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BenchPrefab1/PrefabBoundry1"]
@@ -140,7 +140,7 @@ position = Vector2(0, -112)
 shape = SubResource("RectangleShape2D_gb8yh")
 
 [node name="BenchPrefab2" type="Node2D" parent="."]
-position = Vector2(-1712, -2824)
+position = Vector2(-1656, -2824)
 
 [node name="LargeCounter2" type="Sprite2D" parent="BenchPrefab2"]
 position = Vector2(-240, 232)
@@ -156,7 +156,7 @@ texture = ExtResource("4_k2vib")
 shape = SubResource("RectangleShape2D_c6e46")
 
 [node name="PrefabBoundry1" type="Area2D" parent="BenchPrefab2"]
-position = Vector2(-728, -232)
+position = Vector2(-704, -232)
 disable_mode = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BenchPrefab2/PrefabBoundry1"]
@@ -164,7 +164,7 @@ position = Vector2(0, -112)
 shape = SubResource("RectangleShape2D_gb8yh")
 
 [node name="BenchPrefab3" type="Node2D" parent="."]
-position = Vector2(-1712, -2344)
+position = Vector2(-1680, -2344)
 
 [node name="LargeCounter" type="Sprite2D" parent="BenchPrefab3"]
 position = Vector2(240, 232)
@@ -213,7 +213,7 @@ shape = SubResource("RectangleShape2D_gb8yh")
 
 [node name="KitchenTiles" type="Sprite2D" parent="."]
 z_index = -1
-position = Vector2(-2048, -912)
+position = Vector2(-4760, -2488)
 scale = Vector2(0.969697, 0.969697)
 texture = ExtResource("9_j74r0")
 

@@ -8,6 +8,7 @@ var CharacterDirection = 1
 var CanAttack = false
 
 var BoundryCollision
+var BoundryPosition
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -41,7 +42,7 @@ func _physics_process(delta):
 		CharacterDirection = -1
 		
 	if Input.is_action_just_pressed("Attack") and AttackCooldown <= 0:
-		print("Attacked")
+		print("Hit Nothing")
 		AttackCooldown = 30
 		# For animation to play when attacking but no hitting anything
 		
@@ -63,5 +64,7 @@ func _on_area_2d_area_exited(_area):
 	print("Player exited enemy")
 
 
-func _on_prefab_boundry_1_body_entered(_body):
-	BoundryCollision = true
+func _on_prefab_boundry_1_body_entered(body):
+	if body.name == "Player":
+		BoundryPosition = body.position
+		BoundryCollision = true
