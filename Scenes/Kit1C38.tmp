@@ -17,7 +17,7 @@
 size = Vector2(1440, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hfh23"]
-size = Vector2(111.797, 64)
+size = Vector2(105.5, 64)
 
 [sub_resource type="Gradient" id="Gradient_wybi8"]
 offsets = PackedFloat32Array(0.233766, 1)
@@ -54,17 +54,16 @@ position = Vector2(-4360, -1920)
 shape = SubResource("RectangleShape2D_vahfj")
 
 [node name="Player" type="CharacterBody2D" parent="."]
-position = Vector2(-4536, -2016)
+position = Vector2(-3856, -2536)
 script = ExtResource("6_e817y")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 modulate = Color(1, 0, 0.25098, 1)
-position = Vector2(0.101563, 0)
 shape = SubResource("RectangleShape2D_hfh23")
 debug_color = Color(0.865585, 1.92523e-06, 0.516324, 0.42)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
-zoom = Vector2(0.4, 0.4)
+zoom = Vector2(0.1, 0.1)
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
 drag_left_margin = 0.0
@@ -73,143 +72,143 @@ drag_right_margin = 0.0
 drag_bottom_margin = 0.0
 
 [node name="Player" type="Sprite2D" parent="Player"]
-position = Vector2(-24, 0)
+position = Vector2(-21, 0)
 texture = SubResource("GradientTexture2D_4pm0c")
 
 [node name="OvenPrefab" type="Node2D" parent="."]
-position = Vector2(-4032, -2472)
+position = Vector2(-3216, -2464)
 
 [node name="SmallCounter2" type="Sprite2D" parent="OvenPrefab"]
-position = Vector2(240, 232)
+position = Vector2(-496, 232)
 texture = ExtResource("3_7lhwp")
 
 [node name="SmallCounter3" type="Sprite2D" parent="OvenPrefab"]
-position = Vector2(1232, 232)
+position = Vector2(496, 232)
 texture = ExtResource("3_7lhwp")
 
 [node name="Cupboard" type="Sprite2D" parent="OvenPrefab"]
-position = Vector2(320, -720)
+position = Vector2(-416, -720)
 texture = ExtResource("7_shgab")
 
 [node name="Cupboard2" type="Sprite2D" parent="OvenPrefab"]
-position = Vector2(1184, -720)
+position = Vector2(448, -720)
 texture = ExtResource("8_h7v0b")
 
 [node name="Oven2" type="Sprite2D" parent="OvenPrefab"]
-position = Vector2(736, 232)
+position = Vector2(0, 232)
 texture = ExtResource("10_uvas7")
 
 [node name="Rangehood" type="Sprite2D" parent="OvenPrefab"]
-position = Vector2(752, -936)
+position = Vector2(16, -936)
 texture = ExtResource("11_nryyt")
 
 [node name="OvenHitbox" type="StaticBody2D" parent="OvenPrefab"]
-position = Vector2(736, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="OvenPrefab/OvenHitbox"]
 shape = SubResource("RectangleShape2D_p5did")
 
 [node name="PrefabBoundry1" type="Area2D" parent="OvenPrefab"]
-position = Vector2(8, -344)
+position = Vector2(-728, -232)
 disable_mode = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="OvenPrefab/PrefabBoundry1"]
+position = Vector2(0, -112)
 shape = SubResource("RectangleShape2D_gb8yh")
 
 [node name="BenchPrefab1" type="Node2D" parent="."]
-position = Vector2(-2336, -3312)
+position = Vector2(-1600, -3312)
 
 [node name="LargeCounter" type="Sprite2D" parent="BenchPrefab1"]
-position = Vector2(496, 232)
+position = Vector2(-240, 232)
 texture = ExtResource("1_oqi3v")
 
 [node name="SmallCounter2" type="Sprite2D" parent="BenchPrefab1"]
-position = Vector2(1232, 232)
+position = Vector2(496, 232)
 texture = ExtResource("3_7lhwp")
 
 [node name="Hitbox1" type="StaticBody2D" parent="BenchPrefab1"]
-position = Vector2(736, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BenchPrefab1/Hitbox1"]
 shape = SubResource("RectangleShape2D_elsln")
 
 [node name="PrefabBoundry1" type="Area2D" parent="BenchPrefab1"]
-position = Vector2(8, -344)
+position = Vector2(-704, -232)
 disable_mode = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BenchPrefab1/PrefabBoundry1"]
+position = Vector2(0, -112)
 shape = SubResource("RectangleShape2D_gb8yh")
 
 [node name="BenchPrefab2" type="Node2D" parent="."]
-position = Vector2(-2392, -2824)
+position = Vector2(-1656, -2824)
 
 [node name="LargeCounter2" type="Sprite2D" parent="BenchPrefab2"]
-position = Vector2(496, 232)
+position = Vector2(-240, 232)
 texture = ExtResource("2_taroe")
 
 [node name="SmallCounter" type="Sprite2D" parent="BenchPrefab2"]
-position = Vector2(1232, 232)
+position = Vector2(496, 232)
 texture = ExtResource("4_k2vib")
 
 [node name="Hitbox2" type="StaticBody2D" parent="BenchPrefab2"]
-position = Vector2(736, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BenchPrefab2/Hitbox2"]
 shape = SubResource("RectangleShape2D_c6e46")
 
 [node name="PrefabBoundry1" type="Area2D" parent="BenchPrefab2"]
-position = Vector2(8, -344)
+position = Vector2(-704, -232)
 disable_mode = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BenchPrefab2/PrefabBoundry1"]
+position = Vector2(0, -112)
 shape = SubResource("RectangleShape2D_gb8yh")
 
 [node name="BenchPrefab3" type="Node2D" parent="."]
-position = Vector2(-2416, -2344)
+position = Vector2(-1680, -2344)
 
 [node name="LargeCounter" type="Sprite2D" parent="BenchPrefab3"]
-position = Vector2(976, 232)
+position = Vector2(240, 232)
 texture = ExtResource("1_oqi3v")
 
 [node name="SmallCounter" type="Sprite2D" parent="BenchPrefab3"]
-position = Vector2(240, 232)
+position = Vector2(-496, 232)
 texture = ExtResource("4_k2vib")
 
 [node name="Hitbox3" type="StaticBody2D" parent="BenchPrefab3"]
-position = Vector2(736, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BenchPrefab3/Hitbox3"]
 shape = SubResource("RectangleShape2D_2w6kp")
 
 [node name="PrefabBoundry1" type="Area2D" parent="BenchPrefab3"]
-position = Vector2(8, -344)
+position = Vector2(-728, -232)
 disable_mode = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BenchPrefab3/PrefabBoundry1"]
+position = Vector2(0, -112)
 shape = SubResource("RectangleShape2D_gb8yh")
 
 [node name="BenchPrefab4" type="Node2D" parent="."]
-position = Vector2(-2448, -1864)
+position = Vector2(-1712, -1864)
 
 [node name="SmallCounter2" type="Sprite2D" parent="BenchPrefab4"]
-position = Vector2(240, 232)
+position = Vector2(-496, 232)
 texture = ExtResource("3_7lhwp")
 
 [node name="LargeCounter2" type="Sprite2D" parent="BenchPrefab4"]
-position = Vector2(976, 232)
+position = Vector2(240, 232)
 texture = ExtResource("2_taroe")
 
 [node name="Hitbox4" type="StaticBody2D" parent="BenchPrefab4"]
-position = Vector2(736, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BenchPrefab4/Hitbox4"]
 shape = SubResource("RectangleShape2D_be5dw")
 
 [node name="PrefabBoundry1" type="Area2D" parent="BenchPrefab4"]
-position = Vector2(8, -344)
+position = Vector2(-728, -232)
 disable_mode = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BenchPrefab4/PrefabBoundry1"]
+position = Vector2(0, -112)
 shape = SubResource("RectangleShape2D_gb8yh")
 
 [node name="KitchenTiles" type="Sprite2D" parent="."]
@@ -219,9 +218,10 @@ scale = Vector2(0.969697, 0.969697)
 texture = ExtResource("9_j74r0")
 
 [node name="OrangeCat" type="Sprite2D" parent="."]
-position = Vector2(-3472, -2704)
+position = Vector2(-3480, -2632)
 texture = ExtResource("6_ccgq3")
 
+[connection signal="area_entered" from="OvenPrefab/PrefabBoundry1" to="Player" method="_on_prefab_boundry_1_area_entered"]
 [connection signal="body_entered" from="OvenPrefab/PrefabBoundry1" to="Player" method="_on_prefab_boundry_1_body_entered"]
 [connection signal="area_entered" from="BenchPrefab1/PrefabBoundry1" to="Player" method="_on_prefab_boundry_1_area_entered"]
 [connection signal="body_entered" from="BenchPrefab1/PrefabBoundry1" to="Player" method="_on_prefab_boundry_1_body_entered"]

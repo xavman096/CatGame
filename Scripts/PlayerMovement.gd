@@ -63,8 +63,9 @@ func _on_area_2d_area_exited(_area):
 	CanAttack = false
 	print("Player exited enemy")
 
-
 func _on_prefab_boundry_1_body_entered(body):
 	if body.name == "Player":
 		BoundryPosition = body.position
 		BoundryCollision = true
+		print(BoundryPosition)
+

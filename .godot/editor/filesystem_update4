@@ -3,3 +3,4 @@ res://Scenes/Kitchen.tscn
 res://Scenes/Bedroom.tscn
 res://Scenes/Bathroom.tscn
 res://Scripts/GameplayManager.gd
+res://Scripts/PlayerMovement.gd

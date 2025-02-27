@@ -1,9 +1,9 @@
+Node2D
 CollisionShape2D
 Area2D
 Node
 StaticBody2D
 AspectRatioContainer
-Node2D
 RichTextLabel
 Control
 TextEdit
