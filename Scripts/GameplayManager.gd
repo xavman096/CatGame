@@ -37,7 +37,7 @@ func _ready():
 
 func _physics_process(_delta):
 	if $Player.BoundryCollision == true and BoundryCooldown <= 0:
-		SpawnPrefab()
+		RemovePrefab()
 	
 	BoundryCooldown = BoundryCooldown - 1
 
@@ -46,13 +46,11 @@ func RemovePrefab():
 		CurrentPrefabs[0].queue_free()
 		CurrentPrefabs.remove_at(0)
 		BoundryCooldown = 60
-		print(CurrentPrefabs)
 		
 	if $Player.CharacterDirection == -1:
 		CurrentPrefabs[2].queue_free()
 		CurrentPrefabs.remove_at(2)
 		BoundryCooldown = 60
-		print(CurrentPrefabs)
 	
 	BoundryCooldown = 60
 	SpawnPrefab()
@@ -82,13 +80,14 @@ func SpawnPrefab():
 		
 		if $Player.CharacterDirection == 1:
 			add_child(Duplicate)
-			Duplicate.position = Vector2(($Player.BoundryPosition.x + 1575), 0)
-			CurrentPrefabs.insert(0, Duplicate)
+			Duplicate.position = Vector2(($Player.BoundryPosition.x + 1512), 0)
+			CurrentPrefabs.insert(2, Duplicate)
 			
 		if $Player.CharacterDirection == -1:
 			add_child(Duplicate)
-			Duplicate.position = Vector2(($Player.BoundryPosition.x - 1575), 0)
-			CurrentPrefabs.insert(2, Duplicate)
+			Duplicate.position = Vector2(($Player.BoundryPosition.x - 3047), 0)
+			CurrentPrefabs.insert(0, Duplicate)
 		
 		StartingPrefab = false
 		$Player.BoundryCollision = false
+		print(CurrentPrefabs)
