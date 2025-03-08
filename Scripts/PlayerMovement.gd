@@ -13,7 +13,6 @@ var BoundryPosition
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
-
 func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
@@ -41,19 +40,12 @@ func _physics_process(delta):
 		self.get_node("CollisionShape2D").position.x = -42.25
 		CharacterDirection = -1
 		
-	if Input.is_action_just_pressed("Attack") and AttackCooldown <= 0:
-		print("Hit Nothing")
+	if Input.is_action_just_pressed("Attack") && CanAttack == true && AttackCooldown <= 0:
+		print("Attacked Player")
 		AttackCooldown = 30
-		# For animation to play when attacking but no hitting anything
-		
 		
 	AttackCooldown = AttackCooldown - 1
 	move_and_slide()
-
-	if Input.is_action_just_pressed("Attack") and AttackCooldown <= 0 and CanAttack == true:
-		AttackCooldown = 2
-		get_parent().get_node("Enemy").queue_free()
-		print("Destroyed Item")
 
 func _on_area_2d_area_entered(_area):
 	CanAttack = true
@@ -68,4 +60,13 @@ func _on_prefab_boundry_1_body_entered(body):
 		BoundryPosition = body.position
 		BoundryCollision = true
 		print(BoundryPosition)
+		
+func _on_fruit_bowl_body_entered(body):
+	if body.name == "Player":
+		CanAttack = true
+		print("Fruit Entered")
 
+func _on_fruit_bowl_body_exited(body):
+	if body.name == "Player":
+		CanAttack = false
+		print("Fruit Exitied")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bcnccfiuyayep"]
+[gd_scene load_steps=29 format=3 uid="uid://bcnccfiuyayep"]
 
 [ext_resource type="Script" path="res://Scripts/GameplayManager.gd" id="1_6mopy"]
 [ext_resource type="Texture2D" uid="uid://cufr4urc28ksr" path="res://Textures/Kitchen/LargeCounter.png" id="1_oqi3v"]
@@ -12,6 +12,11 @@
 [ext_resource type="Texture2D" uid="uid://b4vmuxdgy87th" path="res://Textures/Kitchen/KitchenTiles.png" id="9_j74r0"]
 [ext_resource type="Texture2D" uid="uid://dksoqrljjj7rs" path="res://Textures/Kitchen/Oven2.png" id="10_uvas7"]
 [ext_resource type="Texture2D" uid="uid://dmscsryuouqma" path="res://Textures/Kitchen/Rangehood.png" id="11_nryyt"]
+[ext_resource type="Texture2D" uid="uid://5amju23qnr0b" path="res://Textures/Kitchen/CatTreats.png" id="13_s2c8l"]
+[ext_resource type="Texture2D" uid="uid://71ehr5k3w8tl" path="res://Textures/Kitchen/FruitBowl2.png" id="14_6ucbd"]
+[ext_resource type="Texture2D" uid="uid://ft4qeasx0ntk" path="res://Textures/Kitchen/Pear.png" id="15_i5q76"]
+[ext_resource type="Texture2D" uid="uid://peihjlyu84n2" path="res://Textures/Kitchen/Banana.png" id="16_1xful"]
+[ext_resource type="Texture2D" uid="uid://daop1l1dyovb3" path="res://Textures/Kitchen/Apple.png" id="17_w115x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vahfj"]
 size = Vector2(1440, 16)
@@ -43,6 +48,9 @@ size = Vector2(1472, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_be5dw"]
 size = Vector2(1472, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ft7yc"]
+size = Vector2(336, 240)
 
 [node name="Kitchen" type="Node2D"]
 script = ExtResource("1_6mopy")
@@ -222,6 +230,40 @@ texture = ExtResource("9_j74r0")
 position = Vector2(-3472, -2704)
 texture = ExtResource("6_ccgq3")
 
+[node name="CatTreats" type="Sprite2D" parent="."]
+position = Vector2(-4760, -3128)
+texture = ExtResource("13_s2c8l")
+
+[node name="FruitBowl" type="Area2D" parent="."]
+position = Vector2(-4456, -3088)
+
+[node name="FruitBowlSprite" type="Sprite2D" parent="FruitBowl"]
+scale = Vector2(1.75, 1.6)
+texture = ExtResource("14_6ucbd")
+
+[node name="Pear" type="Sprite2D" parent="FruitBowl/FruitBowlSprite"]
+z_index = -1
+position = Vector2(-36.5714, -50.0001)
+scale = Vector2(0.357143, 0.395833)
+texture = ExtResource("15_i5q76")
+
+[node name="Banana" type="Sprite2D" parent="FruitBowl/FruitBowlSprite"]
+z_index = -1
+position = Vector2(-22.8572, -55)
+rotation = -1.0472
+scale = Vector2(0.592281, 0.569617)
+texture = ExtResource("16_1xful")
+
+[node name="Apple" type="Sprite2D" parent="FruitBowl/FruitBowlSprite"]
+z_index = -1
+position = Vector2(36.5714, -65)
+scale = Vector2(0.442857, 0.5375)
+texture = ExtResource("17_w115x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FruitBowl"]
+position = Vector2(0, -56)
+shape = SubResource("RectangleShape2D_ft7yc")
+
 [connection signal="body_entered" from="OvenPrefab/PrefabBoundry1" to="Player" method="_on_prefab_boundry_1_body_entered"]
 [connection signal="area_entered" from="BenchPrefab1/PrefabBoundry1" to="Player" method="_on_prefab_boundry_1_area_entered"]
 [connection signal="body_entered" from="BenchPrefab1/PrefabBoundry1" to="Player" method="_on_prefab_boundry_1_body_entered"]
@@ -231,3 +273,5 @@ texture = ExtResource("6_ccgq3")
 [connection signal="body_entered" from="BenchPrefab3/PrefabBoundry1" to="Player" method="_on_prefab_boundry_1_body_entered"]
 [connection signal="area_entered" from="BenchPrefab4/PrefabBoundry1" to="Player" method="_on_prefab_boundry_1_area_entered"]
 [connection signal="body_entered" from="BenchPrefab4/PrefabBoundry1" to="Player" method="_on_prefab_boundry_1_body_entered"]
+[connection signal="body_entered" from="FruitBowl" to="Player" method="_on_fruit_bowl_body_entered"]
+[connection signal="body_exited" from="FruitBowl" to="Player" method="_on_fruit_bowl_body_exited"]

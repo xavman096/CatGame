@@ -15,6 +15,10 @@ var RandomNumber = RandomNumberGenerator.new()
 var Number
 var Duplicate
 
+var FruitNumberGenerator = RandomNumberGenerator.new()
+var FruitNumber
+var FruitDuplicate
+
 var StartingPrefab
 
 func _ready():
@@ -82,12 +86,28 @@ func SpawnPrefab():
 			add_child(Duplicate)
 			Duplicate.position = Vector2(($Player.BoundryPosition.x + 1512), 0)
 			CurrentPrefabs.insert(2, Duplicate)
+			if Number != 0:
+				FruitNumber = FruitNumberGenerator.randi_range(0,2)
+			if FruitNumber == 0:
+				FruitDuplicate = $FruitBowl.duplicate()
+				FruitDuplicate.name = 'FruitDuplicate'
+				FruitDuplicate.position = Vector2((Duplicate.position.x + 736), -64)
+				add_child(FruitDuplicate)
+				print("Spawned Fruit")
 			
 		if $Player.CharacterDirection == -1:
 			add_child(Duplicate)
 			Duplicate.position = Vector2(($Player.BoundryPosition.x - 3047), 0)
 			CurrentPrefabs.insert(0, Duplicate)
-		
+			if Number != 0:
+				FruitNumber = FruitNumberGenerator.randi_range(0,2)
+			if FruitNumber == 0:
+				FruitDuplicate = $FruitBowl.duplicate()
+				FruitDuplicate.name = "FruitDuplicate"
+				FruitDuplicate.position = Vector2((Duplicate.position.x - 736), -64)
+				add_child(FruitDuplicate)
+				print("Spawned Fruit")
+				
 		StartingPrefab = false
 		$Player.BoundryCollision = false
 		print(CurrentPrefabs)

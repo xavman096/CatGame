@@ -16,6 +16,10 @@ config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://Textures/GameIcon.png"
 run/icon="res://Textures/GameIcon.png"
 
+[filesystem]
+
+import/blender/enabled=false
+
 [input]
 
 Forward={
