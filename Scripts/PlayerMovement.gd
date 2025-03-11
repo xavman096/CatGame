@@ -11,6 +11,7 @@ var BoundryCollision
 var BoundryPosition
 
 var PlayerAttacked = false
+var AttackedObject = ""
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -44,18 +45,11 @@ func _physics_process(delta):
 		
 	if Input.is_action_just_pressed("Attack") && CanAttack == true && AttackCooldown <= 0:
 		PlayerAttacked = true
+		AttackedObject = "FruitBowl"
 		AttackCooldown = 30
 		
 	AttackCooldown = AttackCooldown - 1
 	move_and_slide()
-
-func _on_area_2d_area_entered(_area):
-	CanAttack = true
-	print("Player entered enemy")
-
-func _on_area_2d_area_exited(_area):
-	CanAttack = false
-	print("Player exited enemy")
 
 func _on_prefab_boundry_1_body_entered(body):
 	if body.name == "Player":

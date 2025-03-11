@@ -118,14 +118,25 @@ func SpawnPrefab():
 				FruitDuplicate.position = Vector2((Duplicate.position.x + 736), -64)
 				add_child(FruitDuplicate)
 				FruitExists = true
+				print("Fruit Spawned")
 		StartingPrefab = false
 		$Player.BoundryCollision = false
 		
 func FruitScatter():
-	Apple = get_node("FruitDuplicate/FruitBowlSprite/Apple")
-	Pear = get_node("FruitDuplicate/FruitBowlSprite/Pear")
-	Banana = get_node("FruitDuplicate/FruitBowlSprite/Banana")
+	Apple = get_node("FruitDuplicate/AppleArea")
+	Pear = get_node("FruitDuplicate/PearArea")
+	Banana = get_node("FruitDuplicate/BananaArea")
 	FruitArray = [Apple, Pear, Banana]
 	for i in range(0,3):
 		FruitDropSpot = RandomNumberGenerator.new().randf_range(-300, 300)
-		FruitArray[i].position = Vector2(FruitDropSpot, 0)
+		FruitArray[i].position = Vector2(FruitDropSpot, 85)
+	get_node("FruitDuplicate/FruitBowlArea").queue_free()
+	
+	if $Player.AttackedObject == "Apple":
+		get_node("FruitBowl/AppleArea").queue_free()
+	
+	if $Player.AttackedObject == "Pear":
+		get_node("FruitBowl/PearArea").queue_free()
+		
+	if $Player.AttackedObject == "Banana":
+		get_node("FruitBowl/BananaArea").queue_free()
