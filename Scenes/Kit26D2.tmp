@@ -72,7 +72,7 @@ shape = SubResource("RectangleShape2D_hfh23")
 debug_color = Color(0.865585, 1.92523e-06, 0.516324, 0.42)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
-zoom = Vector2(0.3, 0.3)
+zoom = Vector2(0.1, 0.1)
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
 drag_left_margin = 0.0
@@ -243,7 +243,7 @@ texture = ExtResource("14_6ucbd")
 
 [node name="Pear" type="Sprite2D" parent="FruitBowl/FruitBowlSprite"]
 z_index = -1
-position = Vector2(-45.7143, -59.9999)
+position = Vector2(-36.5714, -50.0001)
 scale = Vector2(0.357143, 0.395833)
 texture = ExtResource("15_i5q76")
 

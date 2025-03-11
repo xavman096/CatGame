@@ -19,6 +19,11 @@ var FruitNumberGenerator = RandomNumberGenerator.new()
 var FruitNumber
 var FruitDuplicate
 var FruitExists = false
+var FruitDropSpot
+var FruitArray = []
+var Apple
+var Pear
+var Banana
 
 var StartingPrefab
 
@@ -29,25 +34,25 @@ func _ready():
 	BenchPrefab2 = get_node("BenchPrefab2")
 	BenchPrefab3 = get_node("BenchPrefab3")
 	BenchPrefab4 = get_node("BenchPrefab4")
-	
 	SpawnablePrefabs = [OvenPrefab, BenchPrefab1, BenchPrefab2, BenchPrefab3, BenchPrefab4]
-	
 	BoundryPosition = $OvenPrefab/PrefabBoundry1.position
 	
 	StartingPrefab = true
 	SpawnPrefab()
 	
 	$Player.position = Vector2(2205, -16)
-	print(CurrentPrefabs)
-
+	
 func _physics_process(_delta):
 	if $Player.BoundryCollision == true and BoundryCooldown <= 0:
 		RemovePrefab()
 	
+	if $Player.PlayerAttacked == true:
+		FruitScatter()
+		$Player.PlayerAttacked = false
+		
 	BoundryCooldown = BoundryCooldown - 1
 
 func RemovePrefab():
-
 	if $Player.CharacterDirection == 1:
 		if FruitExists == true:
 			if FruitDuplicate.position == Vector2(CurrentPrefabs[0].position.x + 736, -64):
@@ -113,9 +118,14 @@ func SpawnPrefab():
 				FruitDuplicate.position = Vector2((Duplicate.position.x + 736), -64)
 				add_child(FruitDuplicate)
 				FruitExists = true
-				print("Spawned Fruit")
-				print(FruitDuplicate.position)
-				
 		StartingPrefab = false
 		$Player.BoundryCollision = false
-		print(CurrentPrefabs)
+		
+func FruitScatter():
+	Apple = get_node("FruitDuplicate/FruitBowlSprite/Apple")
+	Pear = get_node("FruitDuplicate/FruitBowlSprite/Pear")
+	Banana = get_node("FruitDuplicate/FruitBowlSprite/Banana")
+	FruitArray = [Apple, Pear, Banana]
+	for i in range(0,3):
+		FruitDropSpot = RandomNumberGenerator.new().randf_range(-300, 300)
+		FruitArray[i].position = Vector2(FruitDropSpot, 0)

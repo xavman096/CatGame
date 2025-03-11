@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-const SPEED = 300.0
+const SPEED = 600.0
 const JUMP_VELOCITY = -400.0
 var AttackCooldown = 30
 var CharacterDirection = 1
@@ -9,6 +9,8 @@ var CanAttack = false
 
 var BoundryCollision
 var BoundryPosition
+
+var PlayerAttacked = false
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -41,7 +43,7 @@ func _physics_process(delta):
 		CharacterDirection = -1
 		
 	if Input.is_action_just_pressed("Attack") && CanAttack == true && AttackCooldown <= 0:
-		print("Attacked Player")
+		PlayerAttacked = true
 		AttackCooldown = 30
 		
 	AttackCooldown = AttackCooldown - 1
