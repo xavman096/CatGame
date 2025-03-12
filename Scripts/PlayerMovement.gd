@@ -57,12 +57,22 @@ func _on_prefab_boundry_1_body_entered(body):
 		BoundryCollision = true
 		print(BoundryPosition)
 		
-func _on_fruit_bowl_body_entered(body):
+func _on_fruit_bowl_area_body_entered(body):
+		if body.name == "Player":
+			CanAttack = true
+			print("Fruit Entered")
+
+func _on_fruit_bowl_area_body_exited(body):
+		if body.name == "Player":
+			CanAttack = false
+			print("Fruit Exitied")
+
+func _on_apple_area_body_entered(body):
 	if body.name == "Player":
 		CanAttack = true
-		print("Fruit Entered")
-
-func _on_fruit_bowl_body_exited(body):
-	if body.name == "Player":
-		CanAttack = false
-		print("Fruit Exitied")
+		
+func _on_banana_area_body_entered(body):
+	pass # Replace with function body.
+	
+func _on_pear_area_body_entered(body):
+	pass # Replace with function body.

@@ -49,20 +49,20 @@ size = Vector2(1472, 16)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_be5dw"]
 size = Vector2(1472, 16)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8tg5r"]
-size = Vector2(112, 178)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_02hvf"]
 size = Vector2(336, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ft7yc"]
+size = Vector2(336, 240)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6e1et"]
 size = Vector2(128, 144)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8tg5r"]
+size = Vector2(112, 178)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aut1t"]
 size = Vector2(128, 128)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ft7yc"]
-size = Vector2(336, 240)
 
 [node name="Kitchen" type="Node2D"]
 script = ExtResource("1_6mopy")
@@ -246,8 +246,33 @@ texture = ExtResource("6_ccgq3")
 position = Vector2(-4760, -3128)
 texture = ExtResource("13_s2c8l")
 
-[node name="FruitBowl" type="Area2D" parent="."]
+[node name="FruitBowl" type="Node2D" parent="."]
 position = Vector2(-4456, -3088)
+
+[node name="FruitBowlArea" type="Area2D" parent="FruitBowl"]
+
+[node name="FruitBowlSprite" type="Sprite2D" parent="FruitBowl/FruitBowlArea"]
+scale = Vector2(1.75, 1.6)
+texture = ExtResource("14_6ucbd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FruitBowl/FruitBowlArea"]
+shape = SubResource("RectangleShape2D_02hvf")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="FruitBowl/FruitBowlArea"]
+position = Vector2(0, -56)
+shape = SubResource("RectangleShape2D_ft7yc")
+
+[node name="AppleArea" type="Area2D" parent="FruitBowl"]
+
+[node name="Apple" type="Sprite2D" parent="FruitBowl/AppleArea"]
+z_index = -1
+position = Vector2(64, -104)
+scale = Vector2(0.775, 0.86)
+texture = ExtResource("17_w115x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FruitBowl/AppleArea"]
+position = Vector2(62, -104)
+shape = SubResource("RectangleShape2D_6e1et")
 
 [node name="BananaArea" type="Area2D" parent="FruitBowl"]
 position = Vector2(8, 8)
@@ -264,27 +289,6 @@ texture = ExtResource("16_1xful")
 position = Vector2(-40, -89)
 shape = SubResource("RectangleShape2D_8tg5r")
 
-[node name="FruitBowlArea" type="Area2D" parent="FruitBowl"]
-
-[node name="FruitBowlSprite" type="Sprite2D" parent="FruitBowl/FruitBowlArea"]
-scale = Vector2(1.75, 1.6)
-texture = ExtResource("14_6ucbd")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FruitBowl/FruitBowlArea"]
-shape = SubResource("RectangleShape2D_02hvf")
-
-[node name="AppleArea" type="Area2D" parent="FruitBowl"]
-
-[node name="Apple" type="Sprite2D" parent="FruitBowl/AppleArea"]
-z_index = -1
-position = Vector2(64, -104)
-scale = Vector2(0.775, 0.86)
-texture = ExtResource("17_w115x")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FruitBowl/AppleArea"]
-position = Vector2(62, -104)
-shape = SubResource("RectangleShape2D_6e1et")
-
 [node name="PearArea" type="Area2D" parent="FruitBowl"]
 position = Vector2(2, -16)
 
@@ -298,10 +302,6 @@ texture = ExtResource("15_i5q76")
 position = Vector2(-80, -96)
 shape = SubResource("RectangleShape2D_aut1t")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="FruitBowl"]
-position = Vector2(0, -56)
-shape = SubResource("RectangleShape2D_ft7yc")
-
 [connection signal="body_entered" from="OvenPrefab/PrefabBoundry1" to="Player" method="_on_prefab_boundry_1_body_entered"]
 [connection signal="area_entered" from="BenchPrefab1/PrefabBoundry1" to="Player" method="_on_prefab_boundry_1_area_entered"]
 [connection signal="body_entered" from="BenchPrefab1/PrefabBoundry1" to="Player" method="_on_prefab_boundry_1_body_entered"]
@@ -311,5 +311,8 @@ shape = SubResource("RectangleShape2D_ft7yc")
 [connection signal="body_entered" from="BenchPrefab3/PrefabBoundry1" to="Player" method="_on_prefab_boundry_1_body_entered"]
 [connection signal="area_entered" from="BenchPrefab4/PrefabBoundry1" to="Player" method="_on_prefab_boundry_1_area_entered"]
 [connection signal="body_entered" from="BenchPrefab4/PrefabBoundry1" to="Player" method="_on_prefab_boundry_1_body_entered"]
-[connection signal="body_entered" from="FruitBowl" to="Player" method="_on_fruit_bowl_body_entered"]
-[connection signal="body_exited" from="FruitBowl" to="Player" method="_on_fruit_bowl_body_exited"]
+[connection signal="body_entered" from="FruitBowl/FruitBowlArea" to="Player" method="_on_fruit_bowl_area_body_entered"]
+[connection signal="body_exited" from="FruitBowl/FruitBowlArea" to="Player" method="_on_fruit_bowl_area_body_exited"]
+[connection signal="body_entered" from="FruitBowl/AppleArea" to="Player" method="_on_apple_area_body_entered"]
+[connection signal="body_entered" from="FruitBowl/BananaArea" to="Player" method="_on_banana_area_body_entered"]
+[connection signal="body_entered" from="FruitBowl/PearArea" to="Player" method="_on_pear_area_body_entered"]
