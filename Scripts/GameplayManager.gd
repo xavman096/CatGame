@@ -1,5 +1,7 @@
 extends Node
 
+var PlayerScore = 0
+
 var OvenPrefab
 var BenchPrefab1
 var BenchPrefab2
@@ -36,6 +38,11 @@ func _ready():
 	BenchPrefab4 = get_node("BenchPrefab4")
 	SpawnablePrefabs = [OvenPrefab, BenchPrefab1, BenchPrefab2, BenchPrefab3, BenchPrefab4]
 	BoundryPosition = $OvenPrefab/PrefabBoundry1.position
+	
+	Apple = get_node("AppleArea")
+	Pear = get_node("PearArea")
+	Banana = get_node("BananaArea")
+	FruitArray = [Apple, Pear, Banana]
 	
 	StartingPrefab = true
 	SpawnPrefab()
@@ -113,30 +120,35 @@ func SpawnPrefab():
 			if Number != 0:
 				FruitNumber = FruitNumberGenerator.randi_range(0,1)
 			if FruitNumber == 0:
-				FruitDuplicate = $FruitBowl.duplicate()
+				FruitDuplicate = $FruitBowlArea.duplicate()
 				FruitDuplicate.name = 'FruitDuplicate'
 				FruitDuplicate.position = Vector2((Duplicate.position.x + 736), -64)
 				add_child(FruitDuplicate)
 				FruitExists = true
 				print("Fruit Spawned")
-		StartingPrefab = false
 		$Player.BoundryCollision = false
 		
 func FruitScatter():
-	Apple = get_node("FruitDuplicate/AppleArea")
-	Pear = get_node("FruitDuplicate/PearArea")
-	Banana = get_node("FruitDuplicate/BananaArea")
-	FruitArray = [Apple, Pear, Banana]
-	for i in range(0,3):
-		FruitDropSpot = RandomNumberGenerator.new().randf_range(-300, 300)
-		FruitArray[i].position = Vector2(FruitDropSpot, 85)
-	get_node("FruitDuplicate/FruitBowlArea").queue_free()
+	if $Player.AttackedObject == "FruitBowl":
+		for i in range(0,3):
+			FruitDropSpot = RandomNumberGenerator.new().randf_range(FruitDuplicate.position.x - 300, FruitDuplicate.position.x + 300)
+			FruitArray[i].position = Vector2(FruitDropSpot, FruitDuplicate.position.y + 100)
+		get_node("FruitDuplicate").queue_free()
+		PlayerScore = PlayerScore + 50
+		FruitExists = false
+		$Player.AttackedObject = ""
 	
 	if $Player.AttackedObject == "Apple":
-		get_node("FruitBowl/AppleArea").queue_free()
+		Apple.queue_free()
+		PlayerScore = PlayerScore + 100
+		$Player.AttackedObject = ""
 	
 	if $Player.AttackedObject == "Pear":
-		get_node("FruitBowl/PearArea").queue_free()
+		Pear.queue_free()
+		PlayerScore = PlayerScore + 100
+		$Player.AttackedObject = ""
 		
 	if $Player.AttackedObject == "Banana":
-		get_node("FruitBowl/BananaArea").queue_free()
+		Banana.queue_free()
+		PlayerScore = PlayerScore + 100
+		$Player.AttackedObject = ""

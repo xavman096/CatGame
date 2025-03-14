@@ -45,7 +45,6 @@ func _physics_process(delta):
 		
 	if Input.is_action_just_pressed("Attack") && CanAttack == true && AttackCooldown <= 0:
 		PlayerAttacked = true
-		AttackedObject = "FruitBowl"
 		AttackCooldown = 30
 		
 	AttackCooldown = AttackCooldown - 1
@@ -59,6 +58,7 @@ func _on_prefab_boundry_1_body_entered(body):
 		
 func _on_fruit_bowl_area_body_entered(body):
 		if body.name == "Player":
+			AttackedObject = "FruitBowl"
 			CanAttack = true
 			print("Fruit Entered")
 
@@ -70,9 +70,41 @@ func _on_fruit_bowl_area_body_exited(body):
 func _on_apple_area_body_entered(body):
 	if body.name == "Player":
 		CanAttack = true
+		AttackedObject = "Apple"
+		print("Apple entered")
+		
+func _on_apple_area_body_exited(body):
+		if body.name == "Player":
+			CanAttack = false
+			print("Apple Exited")
 		
 func _on_banana_area_body_entered(body):
-	pass # Replace with function body.
-	
+		if body.name == "Player":
+			CanAttack = true
+			AttackedObject = "Banana"
+			print("Banana entered")
+			
+func _on_banana_area_body_exited(body):
+		if body.name == "Player":
+			CanAttack = false
+			print("Banana Exited")
+
 func _on_pear_area_body_entered(body):
-	pass # Replace with function body.
+		if body.name == "Player":
+			CanAttack = true
+			AttackedObject = "Pear"
+			print("Pear entered")
+
+func _on_pear_area_body_exited(body):
+		if body.name == "Player":
+			CanAttack = true
+			print("Pear Exited")
+		
+
+
+
+
+
+
+
+

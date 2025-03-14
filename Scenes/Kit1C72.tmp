@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://dksoqrljjj7rs" path="res://Textures/Kitchen/Oven2.png" id="10_uvas7"]
 [ext_resource type="Texture2D" uid="uid://dmscsryuouqma" path="res://Textures/Kitchen/Rangehood.png" id="11_nryyt"]
 [ext_resource type="Texture2D" uid="uid://5amju23qnr0b" path="res://Textures/Kitchen/CatTreats.png" id="13_s2c8l"]
-[ext_resource type="Texture2D" uid="uid://b0hwkov08fjr8" path="res://Textures/Kitchen/BowlOfFruit.png" id="14_522s0"]
+[ext_resource type="Texture2D" uid="uid://71ehr5k3w8tl" path="res://Textures/Kitchen/FruitBowl2.png" id="14_6ucbd"]
 [ext_resource type="Texture2D" uid="uid://ft4qeasx0ntk" path="res://Textures/Kitchen/Pear.png" id="15_i5q76"]
 [ext_resource type="Texture2D" uid="uid://peihjlyu84n2" path="res://Textures/Kitchen/Banana.png" id="16_1xful"]
 [ext_resource type="Texture2D" uid="uid://daop1l1dyovb3" path="res://Textures/Kitchen/Apple.png" id="17_w115x"]
@@ -50,16 +50,16 @@ size = Vector2(1472, 16)
 size = Vector2(1472, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_02hvf"]
-size = Vector2(344, 128)
+size = Vector2(336, 128)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6e1et"]
 size = Vector2(128, 144)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_aut1t"]
-size = Vector2(128, 128)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8tg5r"]
 size = Vector2(112, 178)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aut1t"]
+size = Vector2(128, 128)
 
 [node name="Kitchen" type="Node2D"]
 script = ExtResource("1_6mopy")
@@ -243,48 +243,34 @@ texture = ExtResource("6_ccgq3")
 position = Vector2(-4760, -3128)
 texture = ExtResource("13_s2c8l")
 
-[node name="FruitBowlArea" type="Area2D" parent="."]
+[node name="FruitBowl" type="Node2D" parent="."]
 position = Vector2(-4456, -3088)
 
-[node name="BowlOfFruit" type="Sprite2D" parent="FruitBowlArea"]
-position = Vector2(-2.9375, -62.1875)
-scale = Vector2(0.536347, 0.526622)
-texture = ExtResource("14_522s0")
+[node name="FruitBowlArea" type="Area2D" parent="FruitBowl"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FruitBowlArea"]
-position = Vector2(-4, 0)
+[node name="FruitBowlSprite" type="Sprite2D" parent="FruitBowl/FruitBowlArea"]
+scale = Vector2(1.75, 1.6)
+texture = ExtResource("14_6ucbd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FruitBowl/FruitBowlArea"]
 shape = SubResource("RectangleShape2D_02hvf")
 
-[node name="AppleArea" type="Area2D" parent="."]
-position = Vector2(-4456, -3088)
+[node name="AppleArea" type="Area2D" parent="FruitBowl"]
 
-[node name="Apple" type="Sprite2D" parent="AppleArea"]
+[node name="Apple" type="Sprite2D" parent="FruitBowl/AppleArea"]
 z_index = -1
 position = Vector2(64, -104)
 scale = Vector2(0.775, 0.86)
 texture = ExtResource("17_w115x")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AppleArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FruitBowl/AppleArea"]
 position = Vector2(62, -104)
 shape = SubResource("RectangleShape2D_6e1et")
 
-[node name="PearArea" type="Area2D" parent="."]
-position = Vector2(-4454, -3104)
+[node name="BananaArea" type="Area2D" parent="FruitBowl"]
+position = Vector2(8, 8)
 
-[node name="Pear" type="Sprite2D" parent="PearArea"]
-z_index = -1
-position = Vector2(-80, -95.9998)
-scale = Vector2(0.625, 0.633333)
-texture = ExtResource("15_i5q76")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PearArea"]
-position = Vector2(-80, -96)
-shape = SubResource("RectangleShape2D_aut1t")
-
-[node name="BananaArea" type="Area2D" parent="."]
-position = Vector2(-4448, -3080)
-
-[node name="Banana" type="Sprite2D" parent="BananaArea"]
+[node name="Banana" type="Sprite2D" parent="FruitBowl/BananaArea"]
 z_index = -1
 position = Vector2(-40, -88)
 rotation = -1.00756
@@ -292,20 +278,34 @@ scale = Vector2(0.970623, 0.976171)
 skew = -0.0775543
 texture = ExtResource("16_1xful")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BananaArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FruitBowl/BananaArea"]
 position = Vector2(-40, -89)
 shape = SubResource("RectangleShape2D_8tg5r")
 
+[node name="PearArea" type="Area2D" parent="FruitBowl"]
+position = Vector2(2, -16)
+
+[node name="Pear" type="Sprite2D" parent="FruitBowl/PearArea"]
+z_index = -1
+position = Vector2(-80, -95.9998)
+scale = Vector2(0.625, 0.633333)
+texture = ExtResource("15_i5q76")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FruitBowl/PearArea"]
+position = Vector2(-80, -96)
+shape = SubResource("RectangleShape2D_aut1t")
+
 [connection signal="body_entered" from="OvenPrefab/PrefabBoundry1" to="Player" method="_on_prefab_boundry_1_body_entered"]
+[connection signal="area_entered" from="BenchPrefab1/PrefabBoundry1" to="Player" method="_on_prefab_boundry_1_area_entered"]
 [connection signal="body_entered" from="BenchPrefab1/PrefabBoundry1" to="Player" method="_on_prefab_boundry_1_body_entered"]
+[connection signal="area_entered" from="BenchPrefab2/PrefabBoundry1" to="Player" method="_on_prefab_boundry_1_area_entered"]
 [connection signal="body_entered" from="BenchPrefab2/PrefabBoundry1" to="Player" method="_on_prefab_boundry_1_body_entered"]
+[connection signal="area_entered" from="BenchPrefab3/PrefabBoundry1" to="Player" method="_on_prefab_boundry_1_area_entered"]
 [connection signal="body_entered" from="BenchPrefab3/PrefabBoundry1" to="Player" method="_on_prefab_boundry_1_body_entered"]
+[connection signal="area_entered" from="BenchPrefab4/PrefabBoundry1" to="Player" method="_on_prefab_boundry_1_area_entered"]
 [connection signal="body_entered" from="BenchPrefab4/PrefabBoundry1" to="Player" method="_on_prefab_boundry_1_body_entered"]
-[connection signal="body_entered" from="FruitBowlArea" to="Player" method="_on_fruit_bowl_area_body_entered"]
-[connection signal="body_exited" from="FruitBowlArea" to="Player" method="_on_fruit_bowl_area_body_exited"]
-[connection signal="body_entered" from="AppleArea" to="Player" method="_on_apple_area_body_entered"]
-[connection signal="body_exited" from="AppleArea" to="Player" method="_on_apple_area_body_exited"]
-[connection signal="body_entered" from="PearArea" to="Player" method="_on_pear_area_body_entered"]
-[connection signal="body_exited" from="PearArea" to="Player" method="_on_pear_area_body_exited"]
-[connection signal="body_entered" from="BananaArea" to="Player" method="_on_banana_area_body_entered"]
-[connection signal="body_exited" from="BananaArea" to="Player" method="_on_banana_area_body_exited"]
+[connection signal="body_entered" from="FruitBowl/FruitBowlArea" to="Player" method="_on_fruit_bowl_area_body_entered"]
+[connection signal="body_exited" from="FruitBowl/FruitBowlArea" to="Player" method="_on_fruit_bowl_area_body_exited"]
+[connection signal="body_entered" from="FruitBowl/AppleArea" to="Player" method="_on_apple_area_body_entered"]
+[connection signal="body_entered" from="FruitBowl/BananaArea" to="Player" method="_on_banana_area_body_entered"]
+[connection signal="body_entered" from="FruitBowl/PearArea" to="Player" method="_on_pear_area_body_entered"]
