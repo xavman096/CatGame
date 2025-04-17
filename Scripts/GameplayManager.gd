@@ -66,8 +66,9 @@ func _physics_process(_delta):
 			print(FruitArray)
 			print("Array size is 0")
 			for i in FruitArray:
-				i.queue_free()
+				i.position = $FruitBowlArea.position
 			FruitDespawnTimer = 800
+			Bowlpopped = false
 		FruitDespawnTimer = FruitDespawnTimer - 1
 		
 func RemovePrefab():
@@ -147,24 +148,44 @@ func FruitScatter():
 			FruitArray[i].position = Vector2(FruitDropSpot, FruitDuplicate.position.y + 100)
 			Bowlpopped = true
 		get_node("FruitDuplicate").queue_free()
-		PlayerScore = PlayerScore + 50
 		FruitExists = false
 		$Player.AttackedObject = ""
 	
 	if $Player.AttackedObject == "Apple":
 		FruitArray.erase("Apple")
-		Apple.queue_free()
+		var AppleScore = $ScoreManager.duplicate()
+		AppleScore.name = "AppleScore"
+		add_child(AppleScore)
+		AppleScore.position = Vector2($AppleArea.position.x, $AppleArea.position.y - 200)
+		AppleScore.get_child(0).play("ScoreAnimation")
+		Apple.position = $FruitBowlArea.position
 		PlayerScore = PlayerScore + 100
+		if AppleScore.get_child(0).is_playing() == false:
+			AppleScore.queue_free()
 		$Player.AttackedObject = ""
 	
 	if $Player.AttackedObject == "Pear":
 		FruitArray.erase("Pear")
-		Pear.queue_free()
+		var PearScore = $ScoreManager.duplicate()
+		PearScore.name = "PearScore"
+		add_child(PearScore)
+		PearScore.position = Vector2($PearArea.position.x, $PearArea.position.y - 200)
+		PearScore.get_child(0).play("ScoreAnimation")
+		Pear.position = $FruitBowlArea.position
 		PlayerScore = PlayerScore + 100
+		if PearScore.get_child(0).is_playing() == false:
+			PearScore.queue_free()
 		$Player.AttackedObject = ""
 		
 	if $Player.AttackedObject == "Banana":
 		FruitArray.erase("Banana")
-		Banana.queue_free()
+		var BananaScore = $ScoreManager.duplicate()
+		BananaScore.name = "BananaScore"
+		add_child(BananaScore)
+		BananaScore.position = Vector2($BananaArea.position.x, $BananaArea.position.y - 200)
+		BananaScore.get_child(0).play("ScoreAnimation")
+		Banana.position = $FruitBowlArea.position
 		PlayerScore = PlayerScore + 100
+		if BananaScore.get_child(0).is_playing() == false:
+			BananaScore.queue_free()
 		$Player.AttackedObject = ""

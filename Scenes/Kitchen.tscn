@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://bcnccfiuyayep"]
+[gd_scene load_steps=46 format=3 uid="uid://bcnccfiuyayep"]
 
 [ext_resource type="Script" path="res://Scripts/GameplayManager.gd" id="1_6mopy"]
 [ext_resource type="Texture2D" uid="uid://cufr4urc28ksr" path="res://Textures/Kitchen/LargeCounter.png" id="1_oqi3v"]
@@ -16,7 +16,13 @@
 [ext_resource type="Texture2D" uid="uid://b0hwkov08fjr8" path="res://Textures/Kitchen/BowlOfFruit.png" id="14_522s0"]
 [ext_resource type="Texture2D" uid="uid://ft4qeasx0ntk" path="res://Textures/Kitchen/Pear.png" id="15_i5q76"]
 [ext_resource type="Texture2D" uid="uid://peihjlyu84n2" path="res://Textures/Kitchen/Banana.png" id="16_1xful"]
+[ext_resource type="Texture2D" uid="uid://e1vglu0mjoe4" path="res://Textures/100.png" id="16_wtf6u"]
 [ext_resource type="Texture2D" uid="uid://daop1l1dyovb3" path="res://Textures/Kitchen/Apple.png" id="17_w115x"]
+[ext_resource type="Texture2D" uid="uid://bv3c8jon1j3ht" path="res://Textures/SideCat.png" id="19_x5thb"]
+[ext_resource type="Texture2D" uid="uid://dl4qfj7xsc2td" path="res://Textures/StandCat.png" id="20_ggn5r"]
+[ext_resource type="Texture2D" uid="uid://csd1cst7xbk1r" path="res://Textures/BlackCat.png" id="21_mb6kp"]
+[ext_resource type="Texture2D" uid="uid://eosw2m4yol68" path="res://Textures/BlackSideCat.png" id="22_degpx"]
+[ext_resource type="Texture2D" uid="uid://ciykbfq7rs2xt" path="res://Textures/BlackStandCat.png" id="23_dt8fl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vahfj"]
 size = Vector2(1440, 16)
@@ -60,6 +66,80 @@ size = Vector2(128, 128)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8tg5r"]
 size = Vector2(112, 178)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v58ir"]
+atlas = ExtResource("16_wtf6u")
+region = Rect2(0, 0, 496, 272)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uac4j"]
+atlas = ExtResource("16_wtf6u")
+region = Rect2(0, 0, 496, 272)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xd7xa"]
+atlas = ExtResource("16_wtf6u")
+region = Rect2(496, 0, 496, 272)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sm70i"]
+atlas = ExtResource("16_wtf6u")
+region = Rect2(992, 0, 496, 272)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_faa7c"]
+atlas = ExtResource("16_wtf6u")
+region = Rect2(0, 272, 496, 272)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c4in7"]
+atlas = ExtResource("16_wtf6u")
+region = Rect2(496, 272, 496, 272)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4qbwr"]
+atlas = ExtResource("16_wtf6u")
+region = Rect2(992, 272, 496, 272)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_eouja"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v58ir")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uac4j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uac4j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uac4j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uac4j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uac4j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xd7xa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sm70i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_faa7c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c4in7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4qbwr")
+}],
+"loop": false,
+"name": &"ScoreAnimation",
+"speed": 10.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Kitchen" type="Node2D"]
 script = ExtResource("1_6mopy")
@@ -236,7 +316,7 @@ scale = Vector2(0.969697, 0.969697)
 texture = ExtResource("9_j74r0")
 
 [node name="OrangeCat" type="Sprite2D" parent="."]
-position = Vector2(-3472, -2704)
+position = Vector2(-5568, -2640)
 texture = ExtResource("6_ccgq3")
 
 [node name="CatTreats" type="Sprite2D" parent="."]
@@ -295,6 +375,35 @@ texture = ExtResource("16_1xful")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BananaArea"]
 position = Vector2(-40, -89)
 shape = SubResource("RectangleShape2D_8tg5r")
+
+[node name="ScoreManager" type="Node2D" parent="."]
+position = Vector2(-3312, -1840)
+
+[node name="100Points" type="AnimatedSprite2D" parent="ScoreManager"]
+position = Vector2(9.53674e-07, 0)
+scale = Vector2(0.2, 0.2)
+sprite_frames = SubResource("SpriteFrames_eouja")
+animation = &"ScoreAnimation"
+
+[node name="SideCat" type="Sprite2D" parent="."]
+position = Vector2(-5832, -2624)
+texture = ExtResource("19_x5thb")
+
+[node name="StandCat" type="Sprite2D" parent="."]
+position = Vector2(-5352, -2608)
+texture = ExtResource("20_ggn5r")
+
+[node name="BlackCat" type="Sprite2D" parent="."]
+position = Vector2(-5568, -2960)
+texture = ExtResource("21_mb6kp")
+
+[node name="BlackSideCat" type="Sprite2D" parent="."]
+position = Vector2(-5824, -2944)
+texture = ExtResource("22_degpx")
+
+[node name="BlackStandCat" type="Sprite2D" parent="."]
+position = Vector2(-5336, -2936)
+texture = ExtResource("23_dt8fl")
 
 [connection signal="body_entered" from="OvenPrefab/PrefabBoundry1" to="Player" method="_on_prefab_boundry_1_body_entered"]
 [connection signal="body_entered" from="BenchPrefab1/PrefabBoundry1" to="Player" method="_on_prefab_boundry_1_body_entered"]
